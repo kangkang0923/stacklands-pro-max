@@ -15,7 +15,7 @@
 - 补丁类总数 75，`Mod.PatchClasses` 必须与 `Patches/*.cs` 数量一致（`verify.ps1` 校验）。
 - 设置界面共 41 项（8 卡总开关 + 20 功能开关 + 12 数值输入框 + 1 快捷键文本框），改完立即生效，配置存 `Mods\StacklandsProMax\config.json`，删掉即恢复默认全开。
 - 反编译产物在 `../stacklands-mod-common/decompiled/`（私有仓库）；本地反编译可能滞后于实际游戏 DLL，写补丁前用 ILSpy 对实际 DLL 核一遍。
-- `Temp.md` 是用户临时草稿，允许入库，不要当正式文档维护。
+- **临时草稿统一放 `../stacklands-mod-common/Temp.md`**（本仓库不再保留 Temp.md，已在 `.gitignore` 中，2026-10-25 起）。
 
 ## 环境与部署
 
