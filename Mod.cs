@@ -92,6 +92,10 @@ namespace StacklandsProMaxNS
             typeof(AdvancedRecyclingCenterStackPatch), // 31) 高级回收中心：放行"回收中心叠回收中心"，否则 5 张料的配方堆搭不出来（0.6.2）
             typeof(AdvancedRecyclingCenterBlueprintPatch), // 32) 高级回收中心：堆必须"断电 + 取出工人"才读条；判过之后跳过原版工人/能源闸（0.6.3 / 0.6.4）
             typeof(ClaimedCardSendItPatch), // 33) 已被磁力卡/管道认领的卡不许被 SendIt 改掉飞行方向（修信用卡吐钱往左飞，0.6.4）
+            typeof(FoodWarehouseEjectPatch), // 34) 原版食物容器取出的食物往旁边空地掉（0.6.7）
+            typeof(GameSpeedRememberOnMonthEndPatch),     // 35) 月结前记住游戏速度（0.6.7）
+            typeof(GameSpeedRememberOnBoardChangePatch),  // 35b) 换地图前记住游戏速度（0.6.7）
+            typeof(GameSpeedRestorePatch),                // 35c) 月结 / 地图过渡结束后把速度放回去（0.6.7）
         };
 
         /// <summary>
@@ -815,6 +819,14 @@ namespace StacklandsProMaxNS
 
             GameCard root = stack.GetRootCard();
             WorldManager.instance.StackSend(root, Vector3.right);
+            // 0.6.7：原版 StackSend 的兜底是 SendIt()——随机方向甩出去，落点全看运气（可能正好压在
+            // 别的卡/建筑上，还会被自动归堆吞掉）。磁力族或同种牌堆认领时 BounceTarget 会被设上，
+            // 那两种情况照旧交回原版；否则改成"找一块空地掉"——和资源箱、食物容器同一条路
+            // （落点选址见 Patches\ChestEject.cs）。
+            if (root.BounceTarget == null)
+            {
+                ChestEject.EjectToPileOrSide(root, MyGameCard);
+            }
             ResourceCount -= count;
             MarkAsRecentlyRemoved(root);
             return root;

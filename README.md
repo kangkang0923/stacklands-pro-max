@@ -33,7 +33,7 @@ powershell -ExecutionPolicy Bypass -File .\verify.ps1
 
 ```
 Mod.cs ModConfig.cs ModSettings.cs   Mod 入口、41 项设置、统一参数
-Patches/                            75 个补丁类（一个功能一个文件）
+Patches/                            79 个补丁类（一个功能一个文件）
 Cards/ Blueprints/                  内容 JSON（10 张卡）
 Icons/ Sounds/ localization.tsv     资源与本地化
 build.ps1 verify.ps1 rename-mod.ps1 构建、离线校验、改名

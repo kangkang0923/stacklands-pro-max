@@ -18,7 +18,7 @@
 ├─ Mod.cs                    Mod 入口（StacklandsProMax : Mod）+ 磁力箱类 MagnetChest + **磁力容器类 MagneticContainer（0.6.0，城市专属）** + 硬币磁力箱类 CoinMagnetChest + 贝壳磁力箱类 ShellMagnetChest + 磁力信用卡类 MagnetCreditcard + 高级集市类 AdvancedMarket
 ├─ ModConfig.cs              ★ 游戏内设置界面的 41 项（8 卡总开关 + 20 功能 + 12 数值输入框 + 1 文本）+ 卡池/图鉴联动（含给 transpiler 用的运行时取值）
 ├─ ModSettings.cs            统一参数表（堆叠上限、开包间隔、村民边框颜色、双击归堆三个参数）
-├─ Patches                  ★ 一个功能一个文件，75 个补丁类（见第四节）
+├─ Patches                  ★ 一个功能一个文件，79 个补丁类（见第四节）
 │   ├─ StackLimitPatch.cs            堆叠上限 30→100（0.5.8 曾 999，0.5.14 定 100）（transpiler，运行时读开关）
 │   ├─ MagnetTargetPatch.cs          磁铁/四种磁力卡（三种箱 + 信用卡）"截胡"入口（含原版磁铁上限）
 │   ├─ StackDistancePatch.cs         自动归堆搜索距离 2→可调（StackSend + TrySendToChest 两个 transpiler）
@@ -28,7 +28,7 @@
 │   ├─ IdeaSearchPatch.cs            Alt+点击搜索主意（左键＝标题、右键＝描述；侧边栏在任务页时自动跳主意页），迁移 Extra Search Mod
 │   ├─ SidebarHeightPatch.cs         左侧信息栏自动加高 + 不吃鼠标射线（迁移 HigherSidebar，0.5.6）
 │   ├─ InfoDetailPatch.cs            ★ 详细信息（12 个补丁点：战斗详解/掉落百分比/卡包内容/装备/波次/牌堆描述/岛上贝壳金币），迁移 BetterInfo，0.5.6
-│   ├─ ChestEject.cs                 「把一叠卡朝场地外侧弹到空地」的共用弹射（资源箱点击取出 / 磁力箱拖出 / 松手回弹 三条路共用）
+│   ├─ ChestEject.cs                 「把一叠卡弹到旁边的空地」的共用弹射（资源箱点击取出 / 食物容器取出 / 磁力箱点击与拖出 / 松手回弹 共用；落点逐个候选点试"这一格没有别的卡"，0.6.7）
 │   ├─ ChestDropRedirectPatch.cs     Ctrl/Shift 取牌后"只点一下"松手时别落回箱子里（改朝旁边弹）+ 记录"这叠从哪个箱子取出"和拖动偏移；拖出去再放回箱子的照常收下（0.5.17，文件内含 ChestTakeOutTickPatch）
 │   ├─ AutoPausePatch.cs             自动暂停：读档后 + 换地点后（迁移 Auto Pause，3 个补丁类）
 │   ├─ ConflictRowsPatch.cs          战斗多行排列（迁移 Lopi's Conflict Rows，3 个 Prefix + 私有方法反射）
@@ -101,7 +101,7 @@ public override void Ready()
 > `AdvancedBuildingIdea` 也看不到，反而会让卡包抽到一张"抽到就消失"的创意。
 
 
-## 补丁清单（75 个类）
+## 补丁清单（79 个类）
 
 | 补丁类 | 目标 | 类型 | 作用 |
 | --- | --- | --- | --- |
@@ -150,9 +150,13 @@ public override void Ready()
 | `HitTextSetPositionPatch` | `HitText.SetPosition` | Postfix | 伤害/治疗数字改画在**卡牌正中**（合并 Hit Text To Center） |
 | `ChestDragOutPatch` | `GameCard.StartDragging` | Prefix（`Priority.First`） | Shift 拖出 10 张 / Ctrl 拖出 1 张（**只作用在本项目的磁力箱**，挂着鼠标上）；同时**屏蔽原版「Shift+左键拖整叠」**（改抓玩家点中的那张）。**原版资源箱我们一张都不取**（会和 Stacks n Capacity 重复扣数出双份，见 本文「从箱子里"拖"出材料」11.4） |
 | `BoxSelectStackTakeoverPatch` | `GameCard.StartDragging` | Prefix（`Priority.Last`） | 框选多张后**点牌堆任意一张**都能整组拖：把原版这次"拖子卡"改写成"抓这一叠的根卡"（子卡此时还没被拆出来，`GetRootCard()` 拿到的就是选择集里存的那张）。只在"选了不止一张 + 左键拖 + 还没被别人接管"时生效，见 本文「Ctrl+拖空白框选多张卡」 |
-| `ResourceChestEjectPatch` | `ResourceChest.RemoveResources` | Prefix（接替原实现） | 取出的牌**改成"往边上掉"**（原版 `StackSend` 里的 `TrySendToChest` 会把它送回自己箱子），用的是共用弹射（0.5.8 起为 `EjectToPileOrSide`：2 格内有同种牌堆就飞过去叠上——照磁力箱取出的堆叠行为，没有才往边上弹）；同时把"这一叠 ← 哪个箱子"记进 `ChestTakeOut` 供下面那个补丁用（Stacks n Capacity 的拖出走的就是这个方法）。开关「取出的牌往边上掉」关掉即回原版。见 本文「0.5.5 另外两个新交互」 |
+| `ResourceChestEjectPatch` | `ResourceChest.RemoveResources` | Prefix（接替原实现） | 取出的牌**改成"往边上掉"**（原版 `StackSend` 里的 `TrySendToChest` 会把它送回自己箱子），用的是共用弹射（0.5.8 起为 `EjectToPileOrSide`：2 格内有同种牌堆就飞过去叠上——照磁力箱取出的堆叠行为，没有才往旁边弹；**0.6.7 起落点逐个候选点验证"这一格没有别的卡"**，优先空地）。资源箱与城市资源容器（`storage_container`）都是 `ResourceChest`，一处改动两者都生效。同时把"这一叠 ← 哪个箱子"记进 `ChestTakeOut` 供下面那个补丁用（Stacks n Capacity 的拖出走的就是这个方法）。开关「取出的牌往边上掉」关掉即回原版。见 本文「0.5.5 另外两个新交互」 |
 | `ChestDropRedirectPatch` | `WorldManager.DropCard`（私有） | Prefix | **Ctrl/Shift 取牌后"只点一下"松手时别落回箱子里**：松手这一帧原版会走 `CheckIfCanAddOnStack` → 按重叠把这一叠 `SetParent` 回源箱子（＝被吞回去）。这里若"被拖的正是刚取出的那一叠 **且** 它和源箱子还重叠着"，就跳过原版那套，自己做原版 `DropCard` 的最后两行（`StopDragging()` + `SetDraggingDraggableToNull()`）再 `ChestEject.EjectToSide()` 弹到旁边；**已经拖开的照旧交回原版**。用户原话「卡牌似乎是往正上方弹出的，出来后又被吸回去了，把弹出的方向改一下」。见 本文 12.1。**0.5.17 起**："拖出去又拖回箱子上松手"也交回原版（＝主动放回，箱子照常收下）——判据是拖动全程的最大鼠标偏移（松手点就在取出点旁边、位移≈0，只能逐帧采样），超过 0.4 格视为"动过"；用户原话「还没松开的时候，如果不需要了，可以直接放回磁力箱。目前是无法放回去的，会被直接弹开」 |
 | `ChestTakeOutTickPatch` | `WorldManager.Update` | Postfix（0.5.17） | `ChestTakeOut.Tick()`：手里正拖着的"取出记录"逐帧采样鼠标离取出点的最大偏移，供 `ChestDropRedirectPatch` 松手时区分「点一下」（偏移≈0 → 弹到旁边）和「拖出去又放回来」（动过 → 交回原版收下） |
+| `FoodWarehouseEjectPatch` | `FoodWarehouse.RemoveFood` | Postfix（0.6.7） | 原版**食物容器**点击取出食物时走 `StackSend`，兜底是 `SendIt()`＝随机方向甩出去（可能压回容器自己或旁边的牌堆上）。这里在取出之后用同一个 `ChestEject.EjectToPileOrSide` 改落点（2 格内有同种牌堆就叠上，没有就找空地）；运输输出（`checkOutput = true`）那条路不动。开关「取出的牌往边上掉」关掉即回原版 |
+| `GameSpeedRememberOnMonthEndPatch` | `WorldManager.EndOfMonth` | Prefix（0.6.7） | 月结（换月亮 / 下一回合）前记下 `SpeedUp`（原版 `EndOfMonth` 结尾写死 `SpeedUp = 1f`） |
+| `GameSpeedRememberOnBoardChangePatch` | `WorldManager.GoToBoard` | Prefix（0.6.7） | 换地图（城市 / 海岛 / 森林 / 主大陆任意两处之间）前也记一次 `SpeedUp`（原版在过渡回调里同样写死 `SpeedUp = 1f`） |
+| `GameSpeedRestorePatch` | `WorldManager.Update` | Postfix（0.6.7） | 月结协程 / 过场动画 / 地图过渡全部结束后把速度放回原值；**暂停中**（＝「换地点后自动暂停」刚触发）不改 `SpeedUp`，而是改 `GameScreen.prePauseSpeed`，解除暂停后照样是上一回合的倍数；离开游戏/读档时不还原。缘由与实现细节见 `Patches\GameSpeedKeepPatch.cs` |
 | `SendToChestHotkeyPatch` | `WorldManager.Update` | Postfix | 快捷键（默认 `F`，0.5.9 前为 `R`，可在设置界面改）把鼠标指着的卡/牌堆交给原版 `StackSend`：被能收下它的箱子吸走，或飞到附近同类堆。见 本文「0.5.5 另外两个新交互」 |
 | `SuppressVanillaTestFloatingTextPatch` | `WorldManager.CreateFloatingText` | Prefix | 屏蔽原版残留调试提示（0.5.25）：`WorldManager.Update` 里有一段 `GetKeyDown(Key.F)` → `CreateFloatingText(..., "Test hovered", Icons.Wellbeing, ...)` 的官方调试代码，只画绿笑脸浮字、不改数据；本功能默认键正好是 F，所以按 F 送卡时会一起冒出来。这里只挡 `descriptionText == "Test hovered"` 那一次调用（`__args[3]` 取文本，抗参数改名），其余浮字（月末结算/能源设施幸福度）原样放行 |
 | `IdeaSearchKnowledgePatch` | `GameScreen.KnowledgeMatchesSearch`（私有） | Prefix | 主意搜索按模式匹配：`Vanilla` 放行原版，`Title`/`Description` 分别比 `KnowledgeName`/`KnowledgeText`（迁移 Extra Search Mod） |
@@ -558,7 +562,7 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1 -SkipBuild
 | 12 | **Ctrl+拖空白框选多张卡 → 整组搬运** | `WorldManager.Update` + `GameCard/Bosterpack.Clicked` + `GameCamera.StartDragging` | Postfix ×1 + Prefix ×3 | Multi Select & Drag | 「框选多张卡」 |
 | 13 | **伤害/治疗数字显示在卡牌中间** | `HitText.SetPosition`（+ `Combatable.CreateHitText` 打标记） | Postfix ×2 | Hit Text To Center | 「数字显示在卡牌中间」 |
 | 14 | **从箱子里拖出材料**（Shift 10 张 / Ctrl 1 张，挂在鼠标上，松开才落地）＋ **屏蔽原版「Shift+拖整叠」** | `GameCard.StartDragging` | Prefix（`Priority.First`） | Stacks n Capacity 的机制 | 常开（**只作用在本项目的磁力箱**；原版资源箱的取牌仍归原版 / Stacks n Capacity，见第十一节） |
-| 15 | **取出的牌"往边上掉"**（原版会弹起来又落回箱子上）：原版资源箱点击取出、以及**Ctrl/Shift 取牌后"只点一下"**时，都改成朝旁边弹到地上；**拖出去再放回箱子的照常收下**（0.5.17，按拖动全程鼠标偏移区分）；**弹出的叠会自动飞到 2 格内的同种牌堆上归堆**（0.5.19，连续取出的多叠自动并堆） | `ResourceChest.RemoveResources` + `WorldManager.DropCard` | Prefix（接替原实现）+ Prefix（接管松手）+ Postfix（采样偏移） | ——（自研） | 「取出的牌往边上掉」 |
+| 15 | **取出的牌"往边上掉"**（原版会弹起来又落回箱子上）：原版资源箱 / 资源容器 / 食物容器点击取出、以及**Ctrl/Shift 取牌后"只点一下"**时，都改成弹到旁边的**空地**（0.6.7 起落点逐个候选点验证"这格没被占"）；**拖出去再放回箱子的照常收下**（0.5.17，按拖动全程鼠标偏移区分）；**弹出的叠会自动飞到 2 格内的同种牌堆上归堆**（0.5.19，连续取出的多叠自动并堆） | `ResourceChest.RemoveResources` + `FoodWarehouse.RemoveFood` + `WorldManager.DropCard` | Prefix（接替原实现）+ Postfix（改落点）+ Prefix（接管松手）+ Postfix（采样偏移） | ——（自研） | 「取出的牌往边上掉」 |
 | 16 | **快捷键（默认 F，0.5.9 前为 R）把鼠标指着的卡/牌堆送往箱子或同类堆** | `WorldManager.Update` | Postfix | Stacks n Capacity 的 X 键机制 | 「按快捷键把卡送往箱子」+「送往箱子的快捷键」（文本框，默认 `F`，0.5.9 前为 `R`） |
 | 17 | **Alt+点击搜索主意**（Alt+左键＝按标题、Alt+右键＝按描述、Alt+点空白＝清空）＋ 侧边栏**三个固定按钮**（搜标题 / 搜描述 / 清除）＋ 侧边栏停在**任务**页时自动跳到**主意**页 | `GameScreen.KnowledgeMatchesSearch`（私有）＋`WorldManager.Update`＋`GameScreen.Awake`＋`GameCard`/`Boosterpack.Clicked` | Prefix ×3 + Postfix ×2 | Extra Search Mod | 「Alt+点击搜索主意」 |
 | 18 | **左侧信息栏自动加高**（按文字高度自适应 + 不吃鼠标射线） | `GameScreen.Awake` + `GameScreen.LateUpdate` | Postfix ×2 | HigherSidebar | 「信息栏自动加高」+ 最小/最大高度两个数值 |
@@ -577,6 +581,7 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1 -SkipBuild
 | 28c | **信用卡容量默认 100000**（原版 1000；排除磁力信用卡子类；0.5.18 起**数字输入框**） | `Creditcard.UpdateCard` | Postfix | ——（自研） | 「信用卡容量」（输入框，默认 100000） |
 | 29 | **资源箱可存更多卡牌类型**（磁力箱白名单：材料+食物+装备；仍一箱一种） | `ResourceChest.CanHaveCard` | Postfix（全量重算——Stacks n Capacity 也 Prefix 了它，Postfix 一定最后跑） | Stacks n Capacity（它的白名单不含便便排除） | 「资源箱可存更多卡牌类型」 |
 | 29b | **资源箱取出的卡自动堆叠**（2 格内有同种牌堆就飞过去叠上，照磁力箱取出的堆叠行为；没有才往边上弹） | `ChestEject.EjectToPileOrSide`（`RemoveResources` 的共用弹出升级） | —— | ——（自研） | 跟随「取出的牌往边上掉」 |
+| 29c | **落点优先空地 + 食物容器纳入**（0.6.7）：取物落点逐个候选点验证"这格没被占"；原版食物容器的"随机方向甩出去"也改成同一套 | `ChestEject`（共用落点选址）+ `FoodWarehouse.RemoveFood` | Postfix | ——（自研） | 跟随「取出的牌往边上掉」 |
 | 30 | **月末吃饭优先级**（0.5.9）：先吃**炖锅**里的，**不吃叠在高级温室上的**（那 6 个"种子"是自动循环的生产原料） | `EndOfMonthCutscenes.GetFoodToUseUp`（私有静态，`TargetMethod()` 绑定） | Prefix（接替原实现——排序键在闭包 lambda 里，transpiler 够不着） | ——（自研，修本 mod 自己引入的问题） | 常开（无开关） |
 | 31 | **K+O+F1 调试面板汉化**（0.5.9）：缺失的 `label_debug_*` 中文词条注入当前语言词表（27 个）+ 面板上硬编码的英文按钮按表替换（仅简体中文生效，切语言自动还原） | `SokLoc.get_CurrentLocSet` + `DebugScreen.Start` | Postfix ×2 | ——（自研） | 常开（无开关） |
 | 32 | **Ctrl+点击快速购买卡包**（0.5.16）：按住 **Ctrl** 并**左键点击购买箱**（带价格的卡包预览盒）直接买下一包——付款优先用**场上散落的**金币/贝壳/纸币，不够自动从**对应的箱子/信用卡**（含磁力箱系）里扣，离盒子近的先扣；纸币按原版算法凑整+找零 | `Draggable.Clicked` | Prefix | 原版 `BuyBoosterBox.CardDropped` 的扣款原语（散币堆→箱子→信用卡） | 「Ctrl+点击快速购买卡包」 |
@@ -584,6 +589,7 @@ powershell -ExecutionPolicy Bypass -File .\build.ps1 -SkipBuild
 | 33 | **悬浮提示永远显示在鼠标右上方**（0.5.18）：原版长文案（「取出的牌往边上掉」「详细信息」等）从右上放不下会**翻到鼠标左边**、且因 `IsOverflowing` 量到旧布局尺寸而**截断**；改为先 `ForceRebuildLayoutImmediate` 算完布局、pivot 固定 (0,0)（右上展开）、放不下整体往回挪（右/上缘贴屏幕边缘）。全局生效 | `Tooltip.SetRectTransformToSafePosition`（静态） | Prefix（接管） | ——（自研，修原版 bug） | 常开（无开关，全局生效） |
 | 34 | **信息栏不闪了**（0.5.19）：悬停**带计时器的单卡**（魔法收集器/鸡…）时原版每帧用 0.1 秒精度的倒计时重写信息栏文本 → 高度测量逐帧抖 → 每帧重排整栏＝闪。修法：高度**量化到 2px 网格** + 文本未变不重复赋值（TMP text setter 会弄脏文本网格）+ 16j 追加块 `EndsWith` 判重 | `GameScreen.LateUpdate`（复用 SidebarHeight 补丁）+ `GameScreen.Update`（16j 判重） | —— | ——（自研，修本 mod 引入的抖动） | 常开（无开关） |
 | 35 | **高级集市**（0.5.19 新卡牌：1 铁条 + 1 金条 + **5 硬币**（0.5.20 改）+ 村民合成；**3 运输输入 + 1 运输输出**；运到的卡 10 秒读秒后**整摞一次性售出**，钱币沿运输输出送走；不同种类可卖卡可混叠；0.5.20 修多卡不读条） | `CardData.CanHaveCardOnTop`（混叠放行）＋卡片脚本 `AdvancedMarket`（收卡/售卖对齐原版 `ExportCenter`/`Market`，`WorldManager.SellCard` 整叠结算） | Postfix ×1 | 原版 `Market` / `ExportCenter` | 「卡牌：高级集市」 |
+| 36 | **时间倍数沿用**（0.6.7）：月结（换月亮 / 下一回合）与换地图后保持原来的速度倍数，不再被原版强制打回 1 倍；全地图生效；与「切换地点后自动暂停」配合（解除暂停后仍是原倍数） | `WorldManager.EndOfMonth` + `WorldManager.GoToBoard` + `WorldManager.Update` | Prefix ×2 + Postfix | ——（自研，修原版强制 1 倍） | 常开（无开关） |
 
 **开关方式（0.4.0 起）**：主菜单 → **Mods** → 选中本 mod → **41 项（0.6.6）＝8 个卡总开关 + 20 个功能开关 + 12 个数值输入框 + 1 个文本框（快捷键）**，点了立即生效（不用重启游戏）。
 0.5.18 起：堆叠上限 / 归堆距离 / 各容量上限都是**数字输入框**（int/float 条目原版就渲染成 TMP_InputField 输入框），
@@ -1166,6 +1172,14 @@ if (!card.CanBeDragged()) return false;
 `AbsorbStackedResources` 照常入库，数量加回去）；几乎没动＝点一下 → 维持"往边上弹"。
 原版资源箱（Stacks n Capacity 取牌）走同一个 `DropCard` 补丁，行为一致。
 
+**0.6.7 补充（同一个开关，同一份弹射代码）：落点改成"优先空地"，并把食物容器纳入。** 用户原话「原版的资源箱和资源容器、食物容器，取出物品时，卡片的掉落位置也要改一下，改成优先往空地掉，这个在资源箱或者磁力资源箱上，应该是已经改过的，你看一下」。
+
+- 上面"朝外 1.2 格 + ±20° 随机"只看方向、**不看那一格有没有东西**：箱子挨着建筑、或旁边已经躺着一堆牌时，取出的卡就正好压上去（还会被自动归堆吞掉，看着像"点了一下东西没出来"）。现在 `ChestEject` 改为**逐候选点试空地**：距离 1.2 / 1.6 / 2.0 格 × 方位角 0°/±30°/±60°/±90°/±135°/180°（相对"朝外"方向），**先近后远、同一圈先朝外**，第一个"没被占"的就用它；圈内全被围死才退回旧的"朝外 1.2 格"。
+- "有没有被占"用原版 `GameCard.GetOverlappingCardsInBox` 判：判定盒取卡牌实际尺寸（`GetWidth`/`GetHeight`）的 80%（擦边不算占用，否则相邻卡位之间永远找不到空位），高度给足 2 格；还在飞（`Velocity` 有值）的卡按它的 `TargetPosition` 再比一次距离——否则连点两下取牌时第一张还在半空，第二张会落到同一点。
+- **食物容器（`FoodWarehouse`）此前完全没管**：原版 `RemoveFood` 把食物造在自己身上，点击取出走 `StackSend`，兜底是 `SendIt()`（随机方向甩出去），落点全看运气。0.6.7 新增 `FoodWarehouseEjectPatch`（Postfix），取出后交给同一个 `EjectToPileOrSide`；运输输出（`checkOutput = true`）那条路不动。
+- 磁力箱 / 磁力容器的点击取出同理：`StackSend` 之后若没有磁力族或同种牌堆认领（`BounceTarget == null`），也改成找空地落。
+- "2 格内有同种牌堆就飞过去叠上"（0.5.19 起）**优先级仍在最前**——连续 Shift 取出的多叠牌要自动并堆，那是另一条需求。
+
 ### 12.2 快捷键把目标卡/牌堆"送往箱子"（默认 F，0.5.9 前为 R；按键可在设置界面改）
 
 **需求原话**：「Stacks n Capacity 插件有个功能是"按 X 将目标物品发送到宝箱/堆叠"，这个功能可以让单张卡牌或者牌堆弹起，
@@ -1554,6 +1568,30 @@ Valuetext.preferredHeight + InfoText.preferredHeight + 72
 - Cards 页签的卡牌按钮用卡名（官方已翻）、Effects 页签用效果名（同）、Cutscenes 页签列过场动画 id——都不管。
 - 无开关（常开）。验证：进游戏按 K+O+F1（要按住 K 和 O 再按 F1），面板应是中文。
 
+## 时间倍数沿用：月结 / 换地图（0.6.7，`Patches\GameSpeedKeepPatch.cs`）
+
+**需求原话**：「在城市地图中，如果在一个回合（月亮年）中将速度调快了，下一个回合中速度会自动变成 1 倍。这个需要改成和上一回合速度一样」→「下一个-月-年沿用上一年的时间倍数，好像还有个自动暂停，这两个功能要在城市、海岛等多个地图全部生效」。
+
+**原版只有两处会把速度打回 1 倍**（都在 `WorldManager` 上、与地图无关，所以补丁一挂全地图生效）：
+① `EndOfMonth` 启动结算协程后立刻 `SpeedUp = 1f`；② `GoToBoard` 的地图过渡回调里同样写死 `SpeedUp = 1f`。
+结算 / 过渡结束时都只清 `currentAnimationRoutine`（或结束过渡），**不会**把速度还回来。
+
+**做法**：三个补丁类共用 `GameSpeedKeep` 一份状态——
+`GameSpeedRememberOnMonthEndPatch` / `GameSpeedRememberOnBoardChangePatch`（两处前缀，`Remember()` 记下 >1 的速度）
+＋ `GameSpeedRestorePatch`（`WorldManager.Update` 后置 `Tick()`）。
+
+`Tick()` 只在"玩家又能操作"时还原，四个闸门缺一不可：`IsPlaying`、`currentAnimationRoutine == null && currentAnimation == null`、
+`TransitionScreen.InTransition == false`。**不能在这两个方法的后置里直接改回来**——那样月结弹窗 / 换图过渡期间就是 5 倍，
+背景音乐音高（`AudioManager` 按 `SpeedUp` 变速）等会被带着跑，观感与原版不一致。
+
+**和「切换地点后自动暂停」的配合**：Auto Pause 在过渡结束调 `GameScreen.TimePause()`，把当时的速度存进 `prePauseSpeed` 再设 `SpeedUp = 0`，
+而那一刻正是原版刚设的 1 倍。所以 `Tick()` 发现自己在**暂停中**时不去动 `SpeedUp`（那等于替玩家解除暂停），
+改为把 `GameScreen.prePauseSpeed` 覆盖成记住的倍数——玩家照常按暂停键继续，恢复出来就是上一回合的倍数。
+（`TimePause()` 解除暂停读的正是这个字段。）
+
+**边界**：只记 **>1** 的速度（1 倍是原版行为；也避免"月结流程里又发生换图"把刚记住的倍数冲成 1）；`IsPlaying == false`（回主菜单 / 读档）时丢弃记录，不带进下一局。
+**不做的**：`RestartGame` / `FinishDemand`（Greed 许愿）那两处的重置不管——不是"换回合 / 换地图"，且需求没提。
+
 ## 已知限制与不变量
 
 **已知限制**
@@ -1861,6 +1899,13 @@ Valuetext.preferredHeight + InfoText.preferredHeight + 72
     附近没有同种堆才散落到旁边；
     ⚠️ 与 Stacks n Capacity 的兼容：它的拖出（Shift/Ctrl）走的是同一个 `RemoveResources`，取出的牌堆
     由我们的弹出逻辑接管，行为一致；它的收卡类型 Prefix 会被我们的 Postfix 全量重算覆盖（结果以我们为准）
+44. ⏳ **时间倍数沿用（0.6.7，待验收）**：任意地图（城市/海岛/森林/主大陆）把速度调到 **5 倍** → 过一个月结 →
+    下个回合仍是 **5 倍**（月结弹窗期间应仍是 1 倍速，弹窗结束后才恢复）；换地图 → 到新地图仍是 5 倍；
+    开着设置项「切换地点后自动暂停」→ 到新地图是**暂停**状态，**解除暂停后是 5 倍**；
+    回主菜单再读档 → 不会把上一局的 5 倍带进来
+45. ⏳ **取出优先落空地（0.6.7，待验收）**：把**资源箱 / 城市资源容器 / 食物容器**紧挨着一堆卡或建筑摆（挡住"朝外 1.2 格"这个落点）→
+    点击取物 → 卡应落到**另一块空地**上，不压在别的卡/建筑上、也不被自动归堆立刻吞掉；周围本来就有空地时行为与旧版一致（朝外 1.2 格）；
+    连续 Shift 取出多叠时仍然**优先并到 2 格内的同种牌堆**上
 
 > 排查提示：若日志通道失效（`Player.log` 运行期不落日志，本项目遇到过），
 > 用 `OnGUI` 画一个临时屏幕诊断面板来取运行时状态，比反复改代码猜测快得多（做法见第九节的踩坑记录）。

@@ -55,13 +55,13 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 | 文件 | 内容 | 状态 |
 |---|---|---|
-| `docs/REQUIREMENTS.md` | 要什么、验收标准 | 🟡 草稿待确认 |
+| `docs/REQUIREMENTS.md` | 要什么、验收标准 | ✅ 已确认（2026-10-25） |
 | `docs/DESIGN.md` | 实现契约、不变量、验证方式 | ✅ |
 | `docs/PLAN.md` | 待办与下一步 | ✅ |
 | `docs/MEMORY.md` | 当前状态、交接提示、本机环境 | ✅ |
 | `docs/DECISIONS.md` | 为什么这么定（含被否方案） | ✅ |
 | `docs/创意工坊发布指南.md` | 发布清单、商店页文案 | ✅ |
-| `CHANGELOG.md` | 版本变化（0.1.0 ~ 0.6.6） | ✅ |
+| `CHANGELOG.md` | 版本变化（0.1.0 ~ 0.6.7） | ✅ |
 
 ## 当前状态
 
