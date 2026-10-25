@@ -1,0 +1,128 @@
+Term	Notes	English	Chinese (Simplified)
+stacklandspro_magnet_chest_name	磁力箱：卡片名称	Magnet Chest	磁力箱
+stacklandspro_magnet_chest_name_override	磁力箱：已设定类型后显示的名字（把资源名放前面，避免名字太长）	[resource] Magnet Chest	[resource]磁力箱
+stacklandspro_magnet_chest_description	磁力箱：卡片描述	A storage chest with a built-in magnet. Stack one material, food or equipment on it to set what it stores, then it sucks in nearby items of that type — including the ones a building has just produced. Click to take one out; hold Shift and left-click to take 10 at a time.	自带磁铁的储物箱。往上放一张材料、食物或装备即可设定它存什么，之后会把附近的同类东西吸进箱子（建筑刚产出、还在空中的也会被直接吸走）。点击可取出一张；按住 Shift+左键可一次取出十张。
+stacklandspro_magnet_chest_description_long	磁力箱：鼠标悬停时显示的详细描述	Storing: [resource] x[amount] / [max_amount]	已存：[resource] ×[amount]，上限 [max_amount]
+stacklandspro_idea_magnet_chest_status	磁力箱：合成时的状态文字	Crafting the magnet chest	正在制作磁力箱
+stacklandspro_magnet_chest_output_status	磁力箱：运输输出时的状态文字	Shipping out	正在运输输出
+stacklandspro_coin_magnet_chest_name	硬币磁力箱：卡片名称	Coin Magnet Chest	硬币磁力箱
+stacklandspro_coin_magnet_chest_description	硬币磁力箱：卡片描述	A coin chest with a built-in magnet. It sucks in every coin on the board — including the ones a building has just produced — and coins taken out of it cannot be sucked back for 10 minutes. Click to take 5 coins out.	自带磁铁的硬币箱。会把场上各处的硬币吸进箱子（建筑刚产出的也直接吸走），取出的硬币 10 分钟内不会被吸回去。点击一次取出 5 枚。
+stacklandspro_idea_coin_magnet_chest_status	硬币磁力箱：合成时的状态文字	Crafting the coin magnet chest	正在制作硬币磁力箱
+stacklandspro_super_warehouse_name	高级仓库：卡片名称（内部 id 仍是 super_warehouse，改名不动 id）	Advanced Warehouse	高级仓库
+stacklandspro_super_warehouse_description	高级仓库：卡片描述	A huge warehouse with two recipes: 10 warehouses, or 10 stone + 10 iron bars with a villager (120 seconds). It raises the board's card limit by 140 — the same as 10 normal warehouses.	超大仓库，两种造法：10 张仓库叠一叠；或者 10 个石头 + 10 个铁条，再派一名村民（120 秒）。给场地增加 140 张卡牌上限（等于 10 个普通仓库）。
+stacklandspro_idea_super_warehouse_status	高级仓库：合成时的状态文字	Building the advanced warehouse	正在建造高级仓库
+stacklandspro_cfg_card_magnet_chest_name	设置：磁力箱卡开关名	Card: Magnet Chest	卡牌：磁力箱
+stacklandspro_cfg_card_magnet_chest_tip	设置：磁力箱卡开关说明	Turns the Magnet Chest card on or off. When off, its idea is removed from the booster packs and its recipe cannot be completed any more — cards already in an existing save keep working as before.	磁力箱这张卡的总开关。关掉后它的创意会从卡包里消失、配方也做不出来；已经存在于旧存档里的磁力箱照旧能用。
+stacklandspro_cfg_card_magnet_currency_name	设置：磁力货币箱卡开关名	Card: Magnet currency chests	卡牌：磁力货币箱
+stacklandspro_cfg_card_magnet_currency_tip	设置：磁力货币箱卡开关说明	One switch for all three currency magnet cards: Coin Magnet Chest, Shell Magnet Chest and Magnet Credit Card. Turning it off removes their ideas from the booster packs and disables their recipes — cards already in an existing save keep working as before.	硬币磁力箱、贝壳磁力箱、磁力信用卡三张卡共用的总开关。关掉后它们的创意会从卡包里消失、配方也做不出来；已经存在于旧存档里的这三种卡照旧能用。
+stacklandspro_cfg_card_super_warehouse_name	设置：高级仓库卡开关名	Card: Advanced Warehouse	卡牌：高级仓库
+stacklandspro_cfg_card_super_warehouse_tip	设置：高级仓库卡开关说明	Turns the Advanced Warehouse card on or off. When off, its idea is removed from the booster packs and its recipe cannot be completed any more; cards already in an existing save keep working as before (they still give +140 card limit).	高级仓库这张卡的总开关。关掉后它的创意会从卡包里消失、配方也做不出来；旧存档里已有的高级仓库照旧能用（仍然给 +140 卡牌上限）。
+stacklandspro_advanced_greenhouse_name	高级温室：卡片名称	Advanced Greenhouse	高级温室
+stacklandspro_advanced_greenhouse_description	高级温室：卡片描述	Made from 6 greenhouses. Place 1 seed on it and it produces 1 harvest every 15 seconds — the seed is not consumed, so production loops automatically. Harvests are delivered to a nearby chest or hotpot, or through a transport pipe on the Cities board.	由 6 张温室合成。放 1 个种子，每 15 秒产出 1 份产物，种子不消耗、自动循环。产物会送进旁边的容器（配套箱子/炖锅等），Cities 场地也可接运输管道输出。
+stacklandspro_idea_advanced_greenhouse_status	高级温室：合成时的状态文字	Building the advanced greenhouse	正在建造高级温室
+stacklandspro_cfg_card_advanced_greenhouse_name	设置：高级温室卡开关名	Card: Advanced Greenhouse	卡牌：高级温室
+stacklandspro_cfg_card_advanced_greenhouse_tip	设置：高级温室卡开关说明	Turns the Advanced Greenhouse card on or off. When off, its idea is removed from the booster packs and its recipe cannot be completed any more; cards already in an existing save keep working as before.	高级温室这张卡的总开关。关掉后它的创意会从卡包里消失、配方也做不出来；旧存档里已有的高级温室照旧能用。
+stacklandspro_cfg_stack_limit_size_name	设置：堆叠上限输入框名	Stack limit	卡牌堆叠上限
+stacklandspro_cfg_stack_limit_size_tip	设置：堆叠上限输入框说明	How many cards of the same kind may stack on one pile (vanilla is 30). Type any number; entering 30 restores vanilla behaviour. Also lifts the vanilla magnet's cap.	同一种卡最多叠多高（原版是 30）。直接输入数字即可，立即生效；填 30 ＝原版行为。原版磁铁的吸卡上限也跟着这个值走。
+stacklandspro_cfg_stack_distance_name	设置：自动归堆距离数值	AUTO: stack search distance	自动归堆搜索距离
+stacklandspro_cfg_stack_distance_tip	设置：自动归堆距离数值说明	How far (in board tiles) a produced card searches for a matching stack. Vanilla is 2; entering 2 restores vanilla behaviour.	产出的卡在多远范围内寻找同类堆叠（单位是场上格子）。原版是 2，填 2 ＝原版行为。
+stacklandspro_cfg_open_pack_name	设置：开完整包开关名	Open whole pack	点击一次开完整包
+stacklandspro_cfg_open_pack_tip	设置：开完整包说明	One click opens the whole booster pack, card after card.	点一下卡包就把它整个开完，卡片会一张张连锁飞出。
+stacklandspro_cfg_no_portal_name	设置：传送门开关名	No portal after witch	女巫死后无随机传送门
+stacklandspro_cfg_no_portal_tip	设置：传送门说明	After the wicked witch is defeated, no more random strange portals appear at the end of a month.	打败女巫之后，月底不再随机刷出奇怪传送门。
+stacklandspro_cfg_idle_villager_name	设置：空闲村民开关名	Idle villager border	空闲村民红色边框
+stacklandspro_cfg_idle_villager_tip	设置：空闲村民说明	Villagers with nothing to do get a red border (working, fighting, carrying or dragged villagers do not count).	没事可做的村民显示红色边框；在建筑里干活、战斗中、手上拿着东西或正被拖动的村民不算。
+stacklandspro_cfg_idle_facility_name	设置：空闲生产设施开关名	Idle production facility border	空闲生产设施红色边框
+stacklandspro_cfg_idle_facility_tip	设置：空闲生产设施说明	Empty production spots get a red border so you can see what still has room: farms & gardens, fishing spots, fishing traps, greenhouses, and loose poop (it can be used as soil to grow food). As soon as something grows on one of them or a villager is assigned, the border disappears. Migrated from the Show Idle Villager mod.	空着、还没用上的生产设施显示红色边框：菜园/农场、钓鱼点、捕鱼陷阱、温室，以及散在地上的便便（它可以当"土壤"种东西）。一旦上面长出东西或派了村民，边框就消失。迁移自 Show Idle Villager mod。
+stacklandspro_cfg_auto_pause_load_name	设置：自动暂停（读档）开关名	Auto pause after loading	读到存档后自动暂停
+stacklandspro_cfg_auto_pause_load_tip	设置：自动暂停（读档）说明	Pauses the game right after a save is loaded from the main menu, so you can look around before time starts running again. Migrated from the Auto Pause mod.	从主菜单「继续游戏」读到存档后自动暂停，让你先看清局面再开始计时。迁移自 Auto Pause mod。
+stacklandspro_cfg_auto_pause_board_name	设置：自动暂停（换地点）开关名	Auto pause on location change	切换地点后自动暂停
+stacklandspro_cfg_auto_pause_board_tip	设置：自动暂停（换地点）说明	Pauses the game after you travel to another location (main land / island / forest / cities …). Cutscenes and other transitions do not trigger it. Migrated from the Auto Pause mod.	换场地（主大陆 / 岛 / 森林 / Cities…）之后自动暂停；剧情和其它过渡不会触发。迁移自 Auto Pause mod。
+stacklandspro_cfg_conflict_rows_name	设置：战斗多行排列开关名	Multi-row combat	战斗多行排列
+stacklandspro_cfg_conflict_rows_tip	设置：战斗多行排列说明	Lets a fight use several rows instead of one long row: after the row limit the next units start a new row behind, and the combat box grows to fit. Migrated from Lopi's Conflict Rows mod.	一场战斗不再挤成一行：超过「每行战斗单位上限」后往后另起一行，战斗框也会相应变大。迁移自 Lopi's Conflict Rows mod。
+stacklandspro_cfg_conflict_row_size_name	设置：每行战斗单位上限名	Combat row size	每行战斗单位上限
+stacklandspro_cfg_conflict_row_size_tip	设置：每行战斗单位上限说明	How many cards fit in one combat row before a new row starts (the original mod's default is 7).	一行最多放几张战斗卡，超过就另起一行（原 mod 默认 7）。
+stacklandspro_cfg_right_drag_name	设置：右键拖动开关名	Right-drag cards	右键拖动卡牌
+stacklandspro_cfg_right_drag_tip	设置：右键拖动说明	Hold the right mouse button to drag: a single card moves, and a stack moves as a whole (right-drag never triggers "click to take items out"). Right-dragging empty space still pans the camera.	按住鼠标右键拖动：单张牌直接拖走，牌堆则整叠跟着走；右键拖不会触发“点击取物”。右键拖空白处仍然是平移镜头。
+stacklandspro_cfg_double_click_name	设置：双击归堆开关名	Double-click restack	双击同种卡自动归堆
+stacklandspro_cfg_double_click_tip	设置：双击归堆说明	Double-click a card to pull every matching card nearby onto its stack (villagers stack with villagers, equipment with equipment).	双击一张牌，就把附近的同种卡都吸过来叠成一堆（村民和村民叠、装备和装备叠）。
+stacklandspro_cfg_box_select_name	设置：框选多张卡开关名	Box-select cards	框选多张卡
+stacklandspro_cfg_box_select_tip	设置：框选说明	Hold Ctrl and drag on empty space to box-select cards, then drag any selected card to move the whole group. Click on empty space to clear the selection.	按住 Ctrl 在空白处拖出一个框来圈选多张卡，然后拖任意一张被选中的卡即可整组搬运。点空白处即取消选择。
+stacklandspro_cfg_hit_text_center_name	设置：数字居中开关名	Hit text to center	数字显示在卡牌中间
+stacklandspro_cfg_hit_text_center_tip	设置：数字居中说明	Damage numbers are drawn in the middle of the card instead of under it, so you can still read the current HP. Healing numbers are always centered.	伤害数字画在卡牌正中（而不是压在卡片下沿），这样能看清当前血量。治疗数字始终居中显示。
+stacklandspro_cfg_resource_chest_eject_name	设置：取出方向开关名（资源箱/磁力箱取出的牌都往边上掉）	Eject cards sideways	取出的牌往边上掉
+stacklandspro_cfg_resource_chest_eject_tip	设置：取出方向说明	Vanilla pops a taken-out card straight up and it lands back on the chest (and dropping a take-out stack back on the chest puts it back in). Turn this on to make taken-out cards fly out to the side instead — including when you press-and-release Ctrl/Shift on a chest. Turn it off for vanilla behaviour.	原版取出的牌是垂直弹起、又落回箱子上；按住 Ctrl/Shift 取牌后"只点一下"也会落回箱子里被吞回去。打开这一项，取出的牌改成朝旁边弹到地上（这两条路都生效）；关掉则完全回到原版行为。
+stacklandspro_cfg_send_to_chest_name	设置：送往箱子快捷键开关名	Send card to chest hotkey	按快捷键把卡送往箱子
+stacklandspro_cfg_send_to_chest_tip	设置：送往箱子快捷键说明	Press the key below while hovering a card (or a stack) to send it flying: it gets absorbed by a chest that accepts it, or stacks onto a matching pile nearby.	鼠标指着一张牌（或一叠牌）时按下下面的快捷键，它会自己弹起来飞走：被能收下它的箱子吸进去，或者飞到附近同类的牌堆上叠好。
+stacklandspro_cfg_send_to_chest_key_name	设置：送往箱子快捷键按键名	Send to chest key	送往箱子的快捷键
+stacklandspro_cfg_send_to_chest_key_tip	设置：送往箱子快捷键按键说明	Key name from Unity's Key enum, case-insensitive: F / X / F5 / Space / Digit1 ... Anything unrecognised falls back to F.	填 Unity Key 枚举里的名字即可，大小写不敏感：F / X / F5 / Space / Digit1 ...；认不出来的会回落到默认的 F。
+stacklandspro_cfg_quick_buy_pack_name	设置：快速购买卡包开关名	Quick buy pack on Ctrl+click	Ctrl+点击快速购买卡包
+stacklandspro_cfg_quick_buy_pack_tip	设置：快速购买卡包说明	Hold Ctrl and left-click a pack box (the preview box with the price) to buy a pack instantly. Loose coins/shells/bills on the board are used first; whatever is missing is taken from the matching chests or credit cards automatically. Turn off to restore the vanilla drag-currency-to-buy flow.	按住 Ctrl 并左键点击购买箱（带价格的卡包预览盒）直接买下一包：优先用场上散落的金币/贝壳/纸币，不够的部分自动从对应的箱子/信用卡里扣。关掉后回到原版"把钱拖进购买箱"的方式。
+stacklandspro_shell_magnet_chest_name	贝壳磁力箱：卡片名称	Shell Magnet Chest	贝壳磁力箱
+stacklandspro_shell_magnet_chest_description	贝壳磁力箱：卡片描述	A shell chest with a built-in magnet. It sucks in every shell on the board — including the ones a building has just produced — and shells taken out of it cannot be sucked back for 10 minutes. Click to take 5 shells out.	自带磁铁的贝壳宝箱。会把场上各处的贝壳吸进箱子（建筑刚产出的也直接吸走），取出的贝壳 10 分钟内不会被吸回去。点击一次取出 5 枚。
+stacklandspro_idea_shell_magnet_chest_status	贝壳磁力箱：合成时的状态文字	Crafting the shell magnet chest	正在制作贝壳磁力箱
+stacklandspro_cfg_coin_shell_magnet_chest_capacity_name	设置：硬币/贝壳磁力箱容量输入框名	Coin/shell magnet chest capacity	硬币/贝壳磁力箱容量
+stacklandspro_cfg_coin_shell_magnet_chest_capacity_tip	设置：硬币/贝壳磁力箱容量输入框说明	How much the coin magnet chest and the shell magnet chest can store (default 10000). Type any number; applies immediately to every one on the board.	硬币磁力箱和贝壳磁力箱最多能存多少枚（默认 10000）。直接输入数字即可，场上所有硬币/贝壳磁力箱立即生效。
+stacklandspro_magnet_creditcard_name	磁力信用卡：卡片名称	Magnet Credit Card	磁力信用卡
+stacklandspro_magnet_creditcard_description	磁力信用卡：卡片描述	A credit card with a built-in magnet. It sucks in every dollar bill on the board — including the ones a building or a sale has just produced — and bills taken out of it cannot be sucked back for 10 minutes. Click to take up to 100 out.	自带磁铁的信用卡。会把场上各处的纸币吸进卡里（建筑产出或卖卡得到的也直接吸走），取出的纸币 10 分钟内不会被吸回去。点击一次最多取出 100 面额。
+stacklandspro_idea_magnet_creditcard_status	磁力信用卡：合成时的状态文字	Crafting the magnet credit card	正在制作磁力信用卡
+stacklandspro_cfg_magnet_creditcard_capacity_name	设置：磁力信用卡容量输入框名	Magnet credit card capacity	磁力信用卡容量
+stacklandspro_cfg_magnet_creditcard_capacity_tip	设置：磁力信用卡容量输入框说明	How much money the magnet credit card can hold (default 100000). Type any number; applies immediately to every one on the board.	磁力信用卡最多能存多少面额（默认 100000）。直接输入数字即可，场上所有磁力信用卡立即生效。
+stacklandspro_cfg_idea_search_name	设置：主意搜索开关名	Idea search on Alt+click	Alt+点击搜索主意
+stacklandspro_cfg_idea_search_tip	设置：主意搜索说明	Alt+left-click a card to search the ideas panel by (idea) title, Alt+right-click to search by description; Alt+click on empty space clears the search. Turn this off to restore plain vanilla search.	Alt+左键单击一张卡＝在左侧主意里按**标题**搜索这张卡的名字（原版行为）；Alt+右键单击＝按**描述**搜索；Alt+点空白处＝清空搜索。关掉这一项则完全回到原版搜索。
+stacklandspro_idea_search_title	主意搜索：按钮「搜标题」	Search title	搜标题
+stacklandspro_idea_search_description	主意搜索：按钮「搜描述」	Search description	搜描述
+stacklandspro_idea_search_clear	主意搜索：按钮「清除」	Clear	清除
+stacklandspro_cfg_sidebar_height_name	设置：信息栏自动加高开关名	Auto-grow info panel	信息栏自动加高
+stacklandspro_cfg_sidebar_height_tip	设置：信息栏自动加高说明	Lets the left info panel grow with its text instead of being cut off at the vanilla height (about 300px). Migrated from the HigherSidebar mod.	左侧信息栏按文字实际高度自动变高，不再被原版写死的高度（约 300px）底下裁掉。迁移自 HigherSidebar mod。
+stacklandspro_cfg_sidebar_min_height_name	设置：信息栏最小高度名	Info panel min height	信息栏最小高度
+stacklandspro_cfg_sidebar_min_height_tip	设置：信息栏最小高度说明	Lower bound of the auto height, in pixels. The vanilla panel is about 300.	自动加高的下限（像素）。原版信息栏高度约 300。
+stacklandspro_cfg_sidebar_max_height_name	设置：信息栏最大高度名	Info panel max height	信息栏最大高度
+stacklandspro_cfg_sidebar_max_height_tip	设置：信息栏最大高度说明	Upper bound of the auto height, in pixels (only used while 'Auto-grow info panel' is on).	自动加高的上限（像素），只在「信息栏自动加高」打开时起作用。
+stacklandspro_cfg_detail_info_name	设置：详细信息开关名	Detailed info (combat / drops)	详细信息（战斗 / 掉落）
+stacklandspro_cfg_detail_info_tip	设置：详细信息说明	Shows detailed combat stats (attack speed, damage, estimated damage per second), drop chances in percent, booster pack contents, equipable info, plus a shell / gold counter while on the island. Migrated from the BetterInfo mod.	显示详细战斗数值（攻速、伤害、估算每秒伤害）、掉落概率百分比、卡包内容、装备信息，以及在岛上时把侧栏的金钱数改成「贝壳 + 金币」。迁移自 BetterInfo mod。
+stacklandspro_info_estimated_dps	详细信息：估算每秒伤害	Estimated dmg/s	估算每秒伤害
+stacklandspro_info_makes_one	详细信息：动物产出说明（[card]＝产物、[time]＝秒数）	Makes one [card] every [time]s.	每 [time] 秒产出一张 [card]。
+stacklandspro_cfg_hotpot_capacity_size_name	设置：火锅容量输入框名	Hotpot food capacity	火锅容量
+stacklandspro_cfg_hotpot_capacity_size_tip	设置：火锅容量输入框说明	How much food a hotpot can hold before it stops absorbing (vanilla is 50). Type any number; entering 50 restores vanilla behaviour.	火锅最多囤多少点食物，满了就不再吞食物（原版是 50）。直接输入数字即可；填 50 ＝原版行为。
+stacklandspro_cfg_breeding_pen_keep_name	设置：饲养栏开关名	Animals stay in breeding pen	动物留在饲养栏
+stacklandspro_cfg_breeding_pen_keep_tip	设置：饲养栏说明	Vanilla ejects both parent animals off the pen after breeding, so you have to round them up again. With this on the parents stay on the pen and breeding restarts by itself — a pair keeps producing a baby every 2 minutes. The baby still flies out through the pen's output direction.	原版繁殖完成后会把两只亲代动物弹出去，得重新抓回栏里才能继续。打开后亲代留在栏上、繁殖计时自动重新开始——一对动物每 2 分钟自动繁殖一次；幼崽仍会沿输出方向送出去。
+stacklandspro_cfg_resource_chest_no_count_name	设置：资源箱不占上限开关名	Resource chest cards don't count	资源箱不计入卡牌上限
+stacklandspro_cfg_resource_chest_no_count_tip	设置：资源箱不占上限说明	Vanilla counts a resource chest as 1 + however many resources it holds against the board's card limit (on Cities boards it always counts as 2). With this on, a chest always counts as exactly 1 card — the resources inside stop eating your card limit, just like the magnet chest. Turn it off to restore vanilla counting (applies immediately).	原版在主大陆/岛上，资源箱按「1 + 箱内数量」计入场地卡牌上限（放 50 个木头＝占 51 张）；Cities 场地则固定按 2 张算。打开后每个资源箱固定只算 1 张（＝箱子本身，和磁力箱口径一致），箱内数量不再吃卡牌上限。关掉立刻恢复原版计数。
+stacklandspro_magic_collector_name	魔法收集器：卡片名称	Magic Collector	魔法收集器
+stacklandspro_magic_collector_description	魔法收集器：卡片描述	A mystical device built from a plank, a brick, an iron bar, a gold bar and a glass, attuned with 3 magic dust. Stack a wizard on it and it condenses 1 magic dust every 30 seconds — the wizard stays on the collector. The dust is delivered to a chest or hotpot placed nearby, otherwise it flies out of the way. On the Cities board it can also be hooked up to a transport pipe.	用木板、石砖、铁条、金条、玻璃和 3 份魔法尘埃调制的神秘装置。把魔法师叠在上面，每 30 秒凝结出 1 个魔法尘埃（魔法师不消耗，留在收集器上）。产出的魔法尘埃会自动送进旁边能收它的箱子/炖锅，没有就往外弹出；Cities 场地也可接运输管道输出。
+stacklandspro_magic_collector_status	魔法收集器：产出计时状态文字	Condensing magic dust	正在凝结魔法尘埃
+stacklandspro_idea_magic_collector_status	魔法收集器：合成时的状态文字	Crafting the magic collector	正在制作魔法收集器
+stacklandspro_cfg_card_magic_collector_name	设置：魔法收集器卡总开关名	Card: Magic collector	卡牌：魔法收集器
+stacklandspro_cfg_card_magic_collector_tip	设置：魔法收集器卡总开关说明	Turning this off removes the idea from the booster packs, hides it from the cardopedia and disables its recipe. Collectors already in an existing save keep working.	关掉后：创意从卡包消失、图鉴隐藏、配方做不出来；旧存档里已有的魔法收集器照旧能用。
+stacklandspro_advanced_market_name	高级集市：卡片名称	Advanced Market	高级集市
+stacklandspro_advanced_market_description	高级集市：卡片描述	A large market with 3 transport inputs and 1 transport output. Cards delivered to it are sold automatically after a 10 second countdown — everything stacked on the market is sold at once, and the coins are sent out through the transport output.	带 3 个运输输入和 1 个运输输出的大集市。用管道把资源箱的运输输出接进来，运到的卡牌经过 10 秒读秒后自动售出——堆在集市上的所有卡牌一次性全部卖掉，卖得的钱币沿运输输出送走。
+stacklandspro_advanced_market_status	高级集市：售卖倒计时状态文字	Selling goods	正在出售货物
+stacklandspro_idea_advanced_market_status	高级集市：合成时的状态文字	Building the advanced market	正在建造高级集市
+stacklandspro_cfg_card_advanced_market_name	设置：高级集市卡总开关名	Card: Advanced market	卡牌：高级集市
+stacklandspro_cfg_card_advanced_market_tip	设置：高级集市卡总开关说明	Turning this off removes the idea from the booster packs, hides it from the cardopedia and disables its recipe. Markets already in an existing save keep working.	关掉后：创意从卡包消失、图鉴隐藏、配方做不出来；旧存档里已有的高级集市照旧能用。
+stacklandspro_cfg_resource_chest_capacity_name	设置：资源箱容量输入框名	Resource chest capacity	资源箱容量
+stacklandspro_cfg_resource_chest_capacity_tip	设置：资源箱容量输入框说明	How many resources a vanilla resource chest can store (vanilla is 100). Type any number; entering 100 restores vanilla behaviour.	原版资源箱最多能存多少个资源（原版是 100）。直接输入数字即可；填 100 ＝原版行为。
+stacklandspro_cfg_resource_chest_more_types_name	设置：资源箱收卡类型开关名	Resource chest more card types	资源箱可存更多卡牌类型
+stacklandspro_cfg_resource_chest_more_types_tip	设置：资源箱收卡类型说明	Vanilla resource chests only accept resource cards. With this on they use the same whitelist as the magnet chest: materials, food and equipment (still one type per chest; coins, shells, bills and poop are excluded).	原版资源箱只收资源类卡牌。打开后改用和磁力箱一样的白名单：材料、食物、装备都能存（仍然一箱一种；金币、贝壳、纸币和便便除外）。
+stacklandspro_cfg_coin_shell_chest_capacity_name	设置：硬币箱容量输入框名	Coin/shell chest capacity	硬币箱/贝壳宝箱容量
+stacklandspro_cfg_coin_shell_chest_capacity_tip	设置：硬币箱容量输入框说明	How many coins/shells a vanilla coin chest or shell chest can store (vanilla is 100). Type any number; entering 100 restores vanilla behaviour.	原版硬币箱和贝壳宝箱最多能存多少枚（原版是 100）。直接输入数字即可；填 100 ＝原版行为。
+stacklandspro_cfg_creditcard_capacity_size_name	设置：信用卡容量输入框名	Credit card capacity	信用卡容量
+stacklandspro_cfg_creditcard_capacity_size_tip	设置：信用卡容量输入框说明	How much money a vanilla credit card can hold (vanilla is 1000). Type any number; entering 1000 restores vanilla behaviour.	原版信用卡最多能存多少面额（原版是 1000）。直接输入数字即可；填 1000 ＝原版行为。
+stacklandspro_cfg_magnet_chest_capacity_name	设置：磁力箱容量输入框名	Magnet chest capacity	磁力箱容量
+stacklandspro_cfg_magnet_chest_capacity_tip	设置：磁力箱容量输入框说明	How much the magnet chest can store (default 10000). Type any number; applies immediately to every magnet chest on the board.	磁力箱最多能存多少材料（默认 10000）。直接输入数字即可，场上所有磁力箱立即生效。
+stacklandspro_magnetic_container_name	磁力容器：卡片名称	Magnetic Container	磁力容器
+stacklandspro_magnetic_container_description	磁力容器：卡片描述	A storage container with a built-in magnet, for the city map. Stack one resource on it to set what it stores, then it sucks in every loose resource of that type - including what a building has just produced. Resources that are travelling through a transport pipe are never taken. Click to take one out; hold Shift and left-click to take 10. To craft it, pile up the iron bar, the copper bar and the science, then stack the storage container on the very top - with an educated worker somewhere in the pile.	城市里的自带磁铁的资源容器。往上放一张资源即可设定它存什么，之后会把场上同类资源吸进容器（建筑刚产出的也直接吸走）；正在管道里运输的卡不会被抢。点击取出一张，按住 Shift+左键可一次取出十张。合成时：先把铁条、铜条、科学（和一名受教育工人）摆成一叠，最后把资源容器叠到最上面。
+stacklandspro_magnetic_container_name_override	磁力容器：已设定类型后显示的名字	[resource] Magnetic Container	[resource]磁力容器
+stacklandspro_magnetic_container_description_long	磁力容器：鼠标悬停时的详细描述	Storing: [resource] x[amount] / [max_amount]	已存：[resource] ×[amount]，上限 [max_amount]
+stacklandspro_idea_magnetic_container_status	磁力容器：合成时的状态文字	Crafting the magnetic container	正在制作磁力容器
+stacklandspro_cfg_card_magnetic_container_name	设置：磁力容器卡开关名	Card: Magnetic container	卡牌：磁力容器
+stacklandspro_cfg_card_magnetic_container_tip	设置：磁力容器卡开关说明	Turns the Magnetic Container card on or off. When off, its idea is removed from the booster packs, the card is hidden from the cardopedia and its recipe cannot be completed any more - containers already in an existing save keep working as before.	磁力容器这张卡的总开关。关掉后创意从卡包消失、图鉴隐藏、配方也做不出来；旧版本存档里已有的磁力容器照旧能用。
+stacklandspro_advanced_recycling_center_name	高级回收中心：卡片名称	Advanced Recycling Center	高级回收中心
+stacklandspro_advanced_recycling_center_description	高级回收中心：卡片描述 / 空仓时的描述	Clears 10 pollution every 6 seconds and turns it into metal scraps (sent out through its one transport output). Holds up to [amount] pollution, then overflows. Needs 5 workers, 3 high-voltage power lines and 5 sewer connections. The 5 recycling centers must have their power cut and their workers taken out before they can be merged.	每 6 秒清除 10 点污染，并产出 1 个金属废料（沿那一路运输输出送走）。最多存放 [amount] 点污染，存满会溢出。需要 5 名工人、3 路高压电和 5 路下水道。合成时这 5 个回收中心必须先断开电力、并把里面的工人全部取出来。
+stacklandspro_advanced_recycling_center_description_long	高级回收中心：有存量时的描述	Processing pollution: [current] / [amount]	正在处理污染：已存 [current] / [amount]
+stacklandspro_advanced_recycling_center_overflow_name	高级回收中心：溢出状态的名字	Overflowing Advanced Recycling Center	溢出的高级回收中心
+stacklandspro_advanced_recycling_center_overflow_description	高级回收中心：溢出状态的描述	It is overflowing and cannot take any more pollution for a while.	已经装满了，暂时不能再收污染。
+stacklandspro_idea_advanced_recycling_center_status	高级回收中心：合成时的状态文字	Crafting the advanced recycling center	正在制作高级回收中心
+stacklandspro_cfg_card_advanced_recycling_center_name	设置：高级回收中心卡开关名	Card: Advanced recycling center	卡牌：高级回收中心
+stacklandspro_cfg_card_advanced_recycling_center_tip	设置：高级回收中心卡开关说明	Turns the Advanced Recycling Center card on or off. When off, its idea is removed from the booster packs, the card is hidden from the cardopedia and its recipe cannot be completed any more - centers already in an existing save keep working as before.	高级回收中心这张卡的总开关。关掉后创意从卡包消失、图鉴隐藏、配方也做不出来；旧版本存档里已有的高级回收中心照旧能用。

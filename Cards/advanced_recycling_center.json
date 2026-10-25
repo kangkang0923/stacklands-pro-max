@@ -1,0 +1,32 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_advanced_recycling_center",
+	"nameTerm": "stacklandspro_advanced_recycling_center_name",
+	"descriptionTerm": "stacklandspro_advanced_recycling_center_description",
+	"icon": "recycling_center",
+	"value": 40,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.AdvancedRecyclingCenter",
+	"_IsBuilding": true,
+	"_WorkerAmount": 5,
+	"_PollutionRemovalRate": 10,
+	"_PollutionOverflowMin": 200,
+	"_PollutionOverflowMax": 300,
+	"_EnergyConnectors": [
+		{
+			"EnergyConnectionType": 0,
+			"EnergyConnectionStrength": 3,
+			"EnergyConnectionAmount": 3
+		},
+		{
+			"EnergyConnectionType": 1,
+			"EnergyConnectionStrength": 4,
+			"EnergyConnectionAmount": 5
+		},
+		{
+			"EnergyConnectionType": 1,
+			"EnergyConnectionStrength": 5,
+			"EnergyConnectionAmount": 1
+		}
+	]
+}

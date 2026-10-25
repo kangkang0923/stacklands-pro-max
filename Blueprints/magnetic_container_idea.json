@@ -1,0 +1,16 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/blueprint.schema.json",
+	"id": "stacklandspro_blueprint_magnetic_container",
+	"nameTerm": "stacklandspro_magnetic_container_name",
+	"group": "Automation",
+	"icon": "storage_container",
+	"subprints": [
+		{
+			"RequiredCards": "iron_bar,copper_bar,science,storage_container,any_educated_worker",
+			"CardsToRemove": "iron_bar,copper_bar,science,storage_container",
+			"ResultCard": "stacklandspro_magnetic_container",
+			"Time": 5,
+			"StatusTerm": "stacklandspro_idea_magnetic_container_status"
+		}
+	]
+}

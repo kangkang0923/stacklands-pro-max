@@ -1,0 +1,16 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/blueprint.schema.json",
+	"id": "stacklandspro_blueprint_magic_collector",
+	"nameTerm": "stacklandspro_magic_collector_name",
+	"group": "Building",
+	"icon": "magic_dust",
+	"subprints": [
+		{
+			"RequiredCards": "plank,brick,iron_bar,gold_bar,glass,magic_dust,magic_dust,magic_dust",
+			"CardsToRemove": "plank,brick,iron_bar,gold_bar,glass,magic_dust,magic_dust,magic_dust",
+			"ResultCard": "stacklandspro_magic_collector",
+			"Time": 60,
+			"StatusTerm": "stacklandspro_idea_magic_collector_status"
+		}
+	]
+}

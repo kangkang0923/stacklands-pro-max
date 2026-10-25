@@ -1,0 +1,11 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_super_warehouse",
+	"nameTerm": "stacklandspro_super_warehouse_name",
+	"descriptionTerm": "stacklandspro_super_warehouse_description",
+	"icon": "warehouse",
+	"value": 40,
+	"type": "Structures",
+	"script": "CardData",
+	"_IsBuilding": true
+}

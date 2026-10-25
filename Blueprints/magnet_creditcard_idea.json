@@ -1,0 +1,16 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/blueprint.schema.json",
+	"id": "stacklandspro_blueprint_magnet_creditcard",
+	"nameTerm": "stacklandspro_magnet_creditcard_name",
+	"group": "Automation",
+	"icon": "creditcard",
+	"subprints": [
+		{
+			"RequiredCards": "iron_bar,copper_bar,science,creditcard,any_educated_worker",
+			"CardsToRemove": "iron_bar,copper_bar,science,creditcard",
+			"ResultCard": "stacklandspro_magnet_creditcard",
+			"Time": 5,
+			"StatusTerm": "stacklandspro_idea_magnet_creditcard_status"
+		}
+	]
+}

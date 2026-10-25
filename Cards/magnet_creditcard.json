@@ -1,0 +1,16 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_magnet_creditcard",
+	"nameTerm": "stacklandspro_magnet_creditcard_name",
+	"descriptionTerm": "stacklandspro_magnet_creditcard_description",
+	"icon": "creditcard",
+	"value": 30,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.MagnetCreditcard",
+	"_VanillaLookCardId": "creditcard",
+	"_MaxDollarCount": 100000,
+	"_PullRadius": 999.0,
+	"_PullInterval": 0.1,
+	"_RemovalImmunitySeconds": 600.0,
+	"_ImmunityKeepAwayFactor": 1.6
+}

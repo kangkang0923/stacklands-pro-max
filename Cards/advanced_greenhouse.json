@@ -1,0 +1,19 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_advanced_greenhouse",
+	"nameTerm": "stacklandspro_advanced_greenhouse_name",
+	"descriptionTerm": "stacklandspro_advanced_greenhouse_description",
+	"icon": "greenhouse",
+	"value": 30,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.AdvancedGreenhouseCard",
+	"_IsBuilding": true,
+	"_OutputRadius": 2.5,
+	"_EnergyConnectors": [
+		{
+			"EnergyConnectionType": 1,
+			"EnergyConnectionStrength": 5,
+			"EnergyConnectionAmount": 1
+		}
+	]
+}

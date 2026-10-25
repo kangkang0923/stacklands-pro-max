@@ -1,0 +1,24 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_advanced_market",
+	"nameTerm": "stacklandspro_advanced_market_name",
+	"descriptionTerm": "stacklandspro_advanced_market_description",
+	"icon": "market",
+	"value": 20,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.AdvancedMarket",
+	"_SellInterval": 10.0,
+	"_SellMultiplier": 1.0,
+	"_EnergyConnectors": [
+		{
+			"EnergyConnectionType": 0,
+			"EnergyConnectionStrength": 5,
+			"EnergyConnectionAmount": 3
+		},
+		{
+			"EnergyConnectionType": 1,
+			"EnergyConnectionStrength": 5,
+			"EnergyConnectionAmount": 1
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/blueprint.schema.json",
+	"id": "stacklandspro_blueprint_magnet_chest",
+	"nameTerm": "stacklandspro_magnet_chest_name",
+	"group": "Automation",
+	"icon": "resource_magnet",
+	"subprints": [
+		{
+			"RequiredCards": "resource_magnet, resource_chest",
+			"CardsToRemove": "resource_magnet, resource_chest",
+			"ResultCard": "stacklandspro_magnet_chest",
+			"Time": 5,
+			"StatusTerm": "stacklandspro_idea_magnet_chest_status"
+		}
+	]
+}

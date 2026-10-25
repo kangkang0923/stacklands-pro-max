@@ -1,0 +1,35 @@
+bin/
+obj/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+
+# 系统垃圾文件
+Thumbs.db
+.DS_Store
+
+# 参考截图 / 临时笔记（对话素材，不属于源码）——但创意工坊封面 icon.png 要入库
+*.png
+*.jpg
+*.jpeg
+!icon.png
+
+# 游戏内设置：每人一份，绝不提交、也绝不随 Mod 发布
+# （build.ps1 也会主动把它从 Mods 目录里删掉）
+config.json
+
+# 创意工坊 item id（游戏首传时写入 mod 目录，之后每次上传都靠它定位同一个条目）。
+# 必须入库：丢了会让下次上传「新建一个重复条目」，订阅者会被拆成两半。
+# build.ps1 每次部署都会把它从仓库恢复到 Mods 目录，所以这里用 ! 显式放行。
+!workshop.txt
+
+# 本地工具的运行数据（对话记忆库 / 日志 / 会话）
+.dsh-meow/
+
+# 本地备份输出（backup.ps1）
+.backups/
+
+# 反编译内容已迁至私有仓库 ../stacklands-mod-common/decompiled/（官方要求不公开分享）
+Temp.md

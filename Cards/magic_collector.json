@@ -1,0 +1,18 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_magic_collector",
+	"nameTerm": "stacklandspro_magic_collector_name",
+	"descriptionTerm": "stacklandspro_magic_collector_description",
+	"icon": "magic_dust",
+	"value": 60,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.MagicCollectorCard",
+	"_IsBuilding": true,
+	"_EnergyConnectors": [
+		{
+			"EnergyConnectionType": 1,
+			"EnergyConnectionStrength": 5,
+			"EnergyConnectionAmount": 1
+		}
+	]
+}

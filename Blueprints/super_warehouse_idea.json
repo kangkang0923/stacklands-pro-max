@@ -1,0 +1,23 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/blueprint.schema.json",
+	"id": "stacklandspro_blueprint_super_warehouse",
+	"nameTerm": "stacklandspro_super_warehouse_name",
+	"group": "Building",
+	"icon": "warehouse",
+	"subprints": [
+		{
+			"RequiredCards": "warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse",
+			"CardsToRemove": "warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse,warehouse",
+			"ResultCard": "stacklandspro_super_warehouse",
+			"Time": 20,
+			"StatusTerm": "stacklandspro_idea_super_warehouse_status"
+		},
+		{
+			"RequiredCards": "stone,stone,stone,stone,stone,stone,stone,stone,stone,stone,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,any_villager",
+			"CardsToRemove": "stone,stone,stone,stone,stone,stone,stone,stone,stone,stone,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar,iron_bar",
+			"ResultCard": "stacklandspro_super_warehouse",
+			"Time": 120,
+			"StatusTerm": "stacklandspro_idea_super_warehouse_status"
+		}
+	]
+}

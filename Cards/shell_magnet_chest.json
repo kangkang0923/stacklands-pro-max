@@ -1,0 +1,17 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_shell_magnet_chest",
+	"nameTerm": "stacklandspro_shell_magnet_chest_name",
+	"descriptionTerm": "stacklandspro_shell_magnet_chest_description",
+	"icon": "shell_chest",
+	"value": 30,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.ShellMagnetChest",
+	"_HeldCardId": "shell",
+	"_CoinPullCardId": "shell",
+	"_VanillaLookCardId": "shell_chest",
+	"_PullRadius": 999.0,
+	"_PullInterval": 0.1,
+	"_RemovalImmunitySeconds": 600.0,
+	"_ImmunityKeepAwayFactor": 1.6
+}

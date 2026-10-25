@@ -1,0 +1,28 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_magnetic_container",
+	"nameTerm": "stacklandspro_magnetic_container_name",
+	"descriptionTerm": "stacklandspro_magnetic_container_description",
+	"icon": "storage_container",
+	"value": 20,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.MagneticContainer",
+	"_MaxResourceCount": 10000,
+	"_PullRadius": 999.0,
+	"_PullInterval": 0.1,
+	"_RemovalImmunitySeconds": 600.0,
+	"_ImmunityKeepAwayFactor": 1.6,
+	"_OutputInterval": 10.0,
+	"_EnergyConnectors": [
+		{
+			"EnergyConnectionType": 0,
+			"EnergyConnectionStrength": 5,
+			"EnergyConnectionAmount": 3
+		},
+		{
+			"EnergyConnectionType": 1,
+			"EnergyConnectionStrength": 5,
+			"EnergyConnectionAmount": 3
+		}
+	]
+}

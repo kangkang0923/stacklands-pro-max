@@ -1,0 +1,16 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/blueprint.schema.json",
+	"id": "stacklandspro_blueprint_advanced_market",
+	"nameTerm": "stacklandspro_advanced_market_name",
+	"group": "Building",
+	"icon": "market",
+	"subprints": [
+		{
+			"RequiredCards": "iron_bar,gold_bar,gold,gold,gold,gold,gold,any_villager",
+			"CardsToRemove": "iron_bar,gold_bar,gold,gold,gold,gold,gold",
+			"ResultCard": "stacklandspro_advanced_market",
+			"Time": 60,
+			"StatusTerm": "stacklandspro_idea_advanced_market_status"
+		}
+	]
+}

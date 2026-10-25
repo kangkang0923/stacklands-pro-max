@@ -1,0 +1,14 @@
+{
+	"$schema": "../../stacklands-mod-common/schemas/card.schema.json",
+	"id": "stacklandspro_coin_magnet_chest",
+	"nameTerm": "stacklandspro_coin_magnet_chest_name",
+	"descriptionTerm": "stacklandspro_coin_magnet_chest_description",
+	"icon": "coin_chest",
+	"value": 30,
+	"type": "Structures",
+	"script": "StacklandsProMaxNS.CoinMagnetChest",
+	"_PullRadius": 999.0,
+	"_PullInterval": 0.1,
+	"_RemovalImmunitySeconds": 600.0,
+	"_ImmunityKeepAwayFactor": 1.6
+}
